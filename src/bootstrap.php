@@ -30,7 +30,7 @@ class bootstrap
 
         return array(
                 'php51' => array (
-                    'ip' => 'redis.dev.m6web.fr',
+                    'ip' => 'prod.fr',
                     'port' => 6379,
                     ));
     }
