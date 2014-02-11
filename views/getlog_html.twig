@@ -1,0 +1,76 @@
+{# getlog_html.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+{% include "_cssjs.twig" %}
+<title>record in Redis for key : {{ key }}</title>
+</head>
+<body>
+
+{% include "_nav.twig" %}
+
+<div class="container">
+<div class="page-header">
+<h1>records in Redis for key : {{ key }}</h1>
+<a class="" href="{{ app.request.basePath }}/"><i class="icon-step-backward"></i></a>
+<a class="confirm btn btn-danger btn-mini" href="{{ app.request.basePath }}/purge/{{ key }}" name="purge">clear records</a>
+</div>
+
+
+<div class="row">
+<div class="span4"><p>number of records : {{ nb_records }}.</p></div>
+<div class="span4"><p>{{ nb_displayed_records }} displayed here, from {{ start + 1 }} to {{ end + 1}}.</p>
+</div>
+<div class="span4">
+<!-- pagination -->
+{% include "_getlog_pagination.twig" %}
+
+</div>
+</div>
+
+
+<table class="table table-striped table-bordered" style="width: 100%;" id="redis_records">
+<thead>
+<tr>
+<th style="width: 15%;">date</th>
+<th style="width: 70%;">message</th>
+<th style="width: 15%;">author</th>
+</tr>
+</thead>
+<tbody>
+{% for record in records %}
+<tr>
+    <td>{{ record.date|date("d/m/Y H:i:s") }}</td>
+    <td><pre class="prettyprint">{{ record.message }}</pre></td>
+    <td>{{ record.author }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<!-- pagination -->
+{% include "_getlog_pagination.twig" %}
+
+
+<!-- purge -->
+<a class="confirm btn btn-danger" href="{{ app.request.basePath }}/purge/{{ key }}" name="purge">clear records for key : {{ key }}</a>
+
+</div><!-- #container -->
+
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+    $('#redis_records').dataTable(
+    {
+        "bPaginate": false,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bSort": false,
+        "bInfo": false,
+        "bAutoWidth": false 
+    });
+});
+</script>
+
+</body>
+</html>

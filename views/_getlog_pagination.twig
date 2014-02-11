@@ -1,0 +1,12 @@
+{# _getlog_pagination.twig #}
+<div class="pagination pagination-right" style="margin-top: 0px">
+<ul>
+{% if current_page > 0 %}
+<li><a href="{{ app.request.basePath }}/getlog/html/{{ key }}/{{ current_page - 1 }}">Prev</a></li>
+{% endif %}
+<li class="active"><a href="{{ app.request.basePath }}/getlog/html/{{ key }}/{{ current_page }}">Page {{ current_page + 1}} of {{ max_page + 1}}</a></li>
+{% if current_page < max_page %}
+<li><a href="{{ app.request.basePath }}/getlog/html/{{ key }}/{{ current_page + 1 }}">Next</a></li>
+{% endif %}
+</li>
+</div>

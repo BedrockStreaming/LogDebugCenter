@@ -1,0 +1,55 @@
+/* GENERAL */
+.navbar-inner {
+    border-top-left-radius:0;
+    border-top-right-radius:0;
+}
+.navbar-inner .brand:hover {
+    color:white;
+}
+.navbar-inner .brand span {
+    border-color:transparent #999999 transparent transparent;
+    display: inline-block;
+    border-width: 7px;
+    border-style: solid;
+    width: 0;
+    height: 0;
+    margin-right: 0.4em;
+}
+.navbar-inner .brand:hover span {
+    border-color: transparent white transparent transparent;
+}
+/* HOME PAGE */
+#redis_keys {
+    clear:both;
+}
+
+th {
+    background-position: 98% center;
+    background-repeat:no-repeat;
+}
+th.sorting_desc {
+    background-image: url('/img/sort_desc.png');
+}
+th.sorting_asc {
+    background-image: url('/img/sort_asc.png');
+}
+th.sorting {
+    background-image: url('/img/sort.png');
+}
+
+/* Page liste des logs pour une clé */
+.dataTables_filter {
+    float: right;
+    text-align: right;
+}
+#redis_records {
+    clear:both;
+}
+#redis_records tr td:nth-child(2) {
+    padding:0;
+}
+#redis_records tr td:nth-child(2) pre {
+    margin:0;
+    border:none;
+    background:transparent;
+}

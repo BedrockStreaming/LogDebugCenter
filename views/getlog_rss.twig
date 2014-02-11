@@ -1,0 +1,12 @@
+{# getlog_rss.twig #}
+<rss version="2.0">
+<channel>
+<title>record in Redis for key : {{ key|raw }}</title>
+{% for record in records %}
+<item>
+    <title>{{ record.message|raw }}</title>
+    <author>{{ record.author|raw }}</author>
+    <pubDate>{{ record.date|raw }}</pubDate>
+</item>
+{% endfor %}
+</channel>

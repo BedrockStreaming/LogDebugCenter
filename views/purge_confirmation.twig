@@ -1,0 +1,22 @@
+{# purge_confirmation.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "_cssjs.twig" %}
+<title>Records cleared</title>
+</head>
+<body>
+{% include "_nav.twig" %}
+<div class="container">
+
+<div class="page-header">
+<h1>Records cleared</h1>
+<a class="" href="{{ app.request.basePath }}/"><i class="icon-step-backward"></i> home</a>
+</div>
+<p>Under key: {{ key }}
+<p>number of keys deleted : {{ nb_keys }}</p>
+
+</div><!-- #container -->
+
+</body>
+</html>

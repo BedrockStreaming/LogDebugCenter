@@ -1,0 +1,49 @@
+{# index.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "_cssjs.twig" %}
+<title>Available keys in the log_debug_center</title>
+</head>
+<body>
+{% include "_nav.twig" %}
+<div class="container">
+
+<i class="icon-info-sign"></i> Mem : {{ used_memory_human }} / Mem peack : {{ used_memory_peak_human }}
+
+<div class="page-header">
+<h1>Available keys in the log_debug_center</h1></div>
+<p>number of keys : {{ nb_keys }} </p>
+<table id="redis_keys" class="table table-striped table-bordered" style="width: 100%;">
+<thead>
+<tr>
+<th>key</th>
+<th>nb records</th>
+<th>last log</th>
+<th>more output format</th>
+</tr>
+</thead>
+<tbody>
+{% for key in key_records %}
+<tr>
+    <td><strong>
+        <a href="{{ app.request.basePath }}/getlog/html/{{ key.key }}">
+        {{ key.key }}
+        </a>
+        </strong>
+    </td>
+    <td>{{ key.count }}</td>
+    <td>{{ key.last_log_date|date('d/m/Y H:i:s') }} : {{ key.last_log_message }} <blockquote><small>{{ key.last_log_author }}</small></blockquote></td>
+    <td>
+    <a href="{{ app.request.basePath }}/getlog/rss/{{ key.key }}">rss</a>
+    <a href="{{ app.request.basePath }}/getlog/json/{{ key.key }}">json</a>
+    <a href="{{ app.request.basePath }}/getlog/csv/{{ key.key }}">csv</a>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div><!-- #container -->
+
+</body>
+</html>

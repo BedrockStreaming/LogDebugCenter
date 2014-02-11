@@ -1,0 +1,23 @@
+
+{
+    "name": "m6/log_debub_center",
+    "description": "appli pour débogguer via message POST (j'me comprend)",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "authors": [
+        {
+            "name": "Olivier Mansour",
+            "email": "olivier.mansour@m6.fr",
+            "homepage": "",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "m6web/redis-component": "~1.0",
+        "twig/twig": "dev-master",
+        "silex/silex": "1.0.*"
+    },
+    "minimum-stability": "dev"
+}

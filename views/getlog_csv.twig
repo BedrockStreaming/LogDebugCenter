@@ -1,0 +1,7 @@
+{# getlog_csv.twig #}
+{% for record in records %}
+{{ record.date }};{{ record.message }};{{ record.author }}
+{% endfor %}
+
+
+{# TODO : one line the message #}
