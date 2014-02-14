@@ -1,6 +1,5 @@
-
 {
-    "name": "m6/log_debub_center",
+    "name": "m6/log_debug_center",
     "description": "appli pour débogguer via message POST (j'me comprend)",
     "autoload": {
         "psr-0": { "": "src/" }
